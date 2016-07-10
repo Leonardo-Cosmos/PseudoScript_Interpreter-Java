@@ -16,5 +16,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/PseudoScript_Assembly-Java"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/PseudoScript_Core-Java"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
