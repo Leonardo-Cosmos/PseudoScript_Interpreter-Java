@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.pseudoscript.org/Script" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.pseudoscript.org/Script Script.xsd">
+	<dataSources>
+		<dataSource id="page" category="File" src="./page.properties" />
+		<dataSource id="account" category="DataBase" src="jdbc:mysql://localhost/DATABASE" />
+	</dataSources>
+
+	<operations>
+		<operation name="OpenURL" executor="Selenium">
+			<arguments>
+				<argument name="URL" type="string">
+					<referredData dataSource="page" key="HomePage" />
+				</argument>
+			</arguments>
+		</operation>
+		<operation name="Click" executor="Selenium">
+			<arguments>
+				<argument name="XPath" type="string">
+					<simpleData>//*[@id="sb_form_go"]</simpleData>
+				</argument>
+			</arguments>
+		</operation>
+		<operation name="InputText" executor="Selenium">
+			<arguments>
+				<argument name="XPath" type="string">
+					<referredData dataSource="page" key="SearchInput" />
+				</argument>
+				<argument name="text" type="string">
+					<simpleData>This is a sample</simpleData>
+				</argument>
+			</arguments>
+		</operation>
+	</operations>
+</script>
