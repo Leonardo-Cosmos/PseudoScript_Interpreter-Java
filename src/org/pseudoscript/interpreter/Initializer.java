@@ -6,24 +6,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.pseudoscript.assembly.ExecutorInfo;
-import org.pseudoscript.assembly.ExecutorInfoImpl;
 import org.pseudoscript.assembly.annotation.Executor;
 import org.pseudoscript.assembly.annotation.Operation;
 import org.pseudoscript.data.DataSource;
 import org.pseudoscript.data.file.FileDataSourceFactory;
+import org.pseudoscript.program.ExecutorInfo;
+import org.pseudoscript.program.ExecutorInfoImpl;
 
-public class EnvironmentInitializer {
+public class Initializer {
 
-	private static final Logger LOGGER = Logger.getLogger(EnvironmentInitializer.class.getSimpleName());
+	private static final Logger LOGGER = Logger.getLogger(Initializer.class.getSimpleName());
 	
 	private Map<String, DataSource> dataSources = new HashMap<>();
 	
 	private Map<String, ExecutorInfo> executors = new HashMap<>();
 	
-	public EnvironmentInitializer() {
+	public Initializer() {
 		try {
-			DataSource pageDataSource = FileDataSourceFactory.newDataSource("./page.csv");
+			DataSource pageDataSource = FileDataSourceFactory.newDataSource("./sample/page.csv");
 			dataSources.put("page", pageDataSource);
 		} catch (FileNotFoundException ex) {
 			LOGGER.error("Load data source failed.", ex);
