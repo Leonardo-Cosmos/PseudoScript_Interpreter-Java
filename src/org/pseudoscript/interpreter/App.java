@@ -63,6 +63,9 @@ public class App {
 		
 		LOGGER.info("Execute program.");
 		program.execute();
+		
+		Finalizer finalizer = new Finalizer();
+		finalizer.finalize(initializer.getDataSources());
 	}
 
 }

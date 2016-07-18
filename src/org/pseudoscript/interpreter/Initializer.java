@@ -1,6 +1,7 @@
 package org.pseudoscript.interpreter;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,16 +24,20 @@ public class Initializer {
 	
 	public Initializer() {
 		try {
-			DataSource pageDataSource = FileDataSourceFactory.newDataSource("./sample/page.csv");
-			dataSources.put("page", pageDataSource);
+			DataSource dataSource = FileDataSourceFactory.newDataSource("./sample/page.csv");
+			dataSource.load();
+			
+			dataSources.put("page", dataSource);
 		} catch (FileNotFoundException ex) {
-			LOGGER.error("Load data source failed.", ex);
+			LOGGER.error("Failed to load data source.", ex);
+		} catch (IOException ex) {
+			LOGGER.error("Failed to load data source.", ex);
 		}
 		
 		try {
 			initExecutor("org.pseudoscript.selenium.SeleniumExecutor");
 		} catch (Exception ex) {
-			LOGGER.error("Initialize executor failed.", ex);
+			LOGGER.error("Failed to initialize executor.", ex);
 		}
 	}
 	
