@@ -1,1 +1,2 @@
-HomePage,www.bing.cn
+HomePage,http://cn.bing.com/
+SearchInput,//*[@id="sb_form_q"]

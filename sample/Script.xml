@@ -14,13 +14,6 @@
 				</argument>
 			</arguments>
 		</operation>
-		<operation name="Click" executor="Selenium">
-			<arguments>
-				<argument name="XPath" type="string">
-					<simpleData>//*[@id="sb_form_go"]</simpleData>
-				</argument>
-			</arguments>
-		</operation>
 		<operation name="InputText" executor="Selenium">
 			<arguments>
 				<argument name="XPath" type="string">
@@ -28,6 +21,13 @@
 				</argument>
 				<argument name="text" type="string">
 					<simpleData>This is a sample</simpleData>
+				</argument>
+			</arguments>
+		</operation>
+		<operation name="Click" executor="Selenium">
+			<arguments>
+				<argument name="XPath" type="string">
+					<simpleData>//*[@id="sb_form_go"]</simpleData>
 				</argument>
 			</arguments>
 		</operation>
