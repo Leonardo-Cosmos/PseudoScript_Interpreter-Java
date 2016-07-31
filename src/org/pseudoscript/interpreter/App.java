@@ -7,6 +7,7 @@ import java.io.Reader;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.pseudoscript.program.ExecutorNotFoundException;
+import org.pseudoscript.program.Interpreter;
 import org.pseudoscript.program.OperationNotFoundException;
 import org.pseudoscript.program.Program;
 import org.pseudoscript.script.Script;
