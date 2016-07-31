@@ -2,8 +2,7 @@
 <script xmlns="http://www.pseudoscript.org/Script" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.pseudoscript.org/Script Script.xsd">
 	<dataSources>
-		<dataSource id="page" category="File" src="./page.properties" />
-		<dataSource id="account" category="DataBase" src="jdbc:mysql://localhost/DATABASE" />
+		<dataSource id="page" />
 	</dataSources>
 
 	<operations>
@@ -27,7 +26,7 @@
 		<operation name="Click" executor="Selenium">
 			<arguments>
 				<argument name="XPath" type="string">
-					<simpleData>//*[@id="sb_form_go"]</simpleData>
+					<referredData dataSource="page" key="SearchButton" />
 				</argument>
 			</arguments>
 		</operation>
