@@ -2,21 +2,21 @@
 <script xmlns="http://www.pseudoscript.org/Script" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.pseudoscript.org/Script Script.xsd">
 	<dataSources>
-		<dataSource id="page" />
+		<dataSource id="home" base="page" key="Bing" />
 	</dataSources>
 
 	<operations>
 		<operation name="OpenURL" executor="Selenium">
 			<arguments>
 				<argument name="URL" type="string">
-					<referredData dataSource="page" key="HomePage" />
+					<referredData dataSource="home" key="URL" />
 				</argument>
 			</arguments>
 		</operation>
 		<operation name="InputText" executor="Selenium">
 			<arguments>
 				<argument name="XPath" type="string">
-					<referredData dataSource="page" key="SearchInput" />
+					<referredData dataSource="home" key="SearchInput" />
 				</argument>
 				<argument name="text" type="string">
 					<simpleData>This is a sample</simpleData>
@@ -26,7 +26,7 @@
 		<operation name="Click" executor="Selenium">
 			<arguments>
 				<argument name="XPath" type="string">
-					<referredData dataSource="page" key="SearchButton" />
+					<referredData dataSource="home" key="SearchButton" />
 				</argument>
 			</arguments>
 		</operation>
