@@ -24,7 +24,7 @@ public class Initializer {
 	
 	public Initializer() {
 		try {
-			DataSource dataSource = FileDataSourceFactory.newDataSource("./sample/page.csv");
+			DataSource dataSource = FileDataSourceFactory.newDataSource("./sample/page");
 			dataSource.load();
 			
 			dataSources.put("page", dataSource);

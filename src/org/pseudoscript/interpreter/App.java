@@ -6,9 +6,7 @@ import java.io.Reader;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
-import org.pseudoscript.program.ExecutorNotFoundException;
 import org.pseudoscript.program.Interpreter;
-import org.pseudoscript.program.OperationNotFoundException;
 import org.pseudoscript.program.Program;
 import org.pseudoscript.script.Script;
 import org.pseudoscript.script.xml.XmlScriptConsumer;
@@ -25,13 +23,12 @@ public class App {
 		Interpreter interpreter = new Interpreter(initializer.getDataSources(),
 				initializer.getExecutors());
 		XmlScriptConsumer consumer = new XmlScriptConsumer();
-		consumer.setEnvironmentDataSources(initializer.getDataSources());
 		
 		LOGGER.info("Read script.");
 		Reader reader = null;
 		Script script = null;
 		try {
-			reader = new FileReader("./sample/Script.xml");
+			reader = new FileReader("./sample/script/Search.xml");
 			consumer.setInput(reader);
 			script = consumer.consume();
 		} catch (IOException ex) {
@@ -54,7 +51,7 @@ public class App {
 		Program program = null;
 		try {
 			program = interpreter.interpret(script);
-		} catch (ExecutorNotFoundException | OperationNotFoundException ex) {
+		} catch (Exception ex) {
 			LOGGER.error("Failed to interpret script.", ex);
 		}
 		
